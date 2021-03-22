@@ -1,0 +1,29 @@
+#fy {
+  z-index: 1111111 !important;
+  position: fixed !important;
+  background-color: #666 !important;
+  width: 350px !important;
+  bottom: 90px !important;
+  left: 40% !important;
+  opacity: 0.9;
+}
+
+#sd,
+#td {
+  margin: 15px 10px !important;
+  font-size: 16px;
+  color: yellow !important;
+}
+
+#tips {
+  float: right !important;
+  color: #eee !important;
+  font-size: 11px;
+  margin-bottom: 5px !important;
+  margin-right: 10px !important;
+}
+
+._sp{
+    color: #fff !important;
+    font-size: 18px !important;
+}
