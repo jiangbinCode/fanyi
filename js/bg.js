@@ -1,64 +1,28 @@
-let yd_cookie = "";
-let url = "http://fanyi.youdao.com";
-
-
+//bg.js
 chrome.contextMenus.create({
     title: '翻译', // %s表示选中的文字
     contexts: ['selection'], // 只有当选中文字时才会出现此右键菜单
     onclick: async function (params, tab) {
         let val = params.selectionText;
-        let respData = await ajaxRequest(val);
+        let respData = await ajaxRequest(val); //请求服务器接口
         let text = respData.data;
-        chrome.tabs.sendMessage(tab.id, { tgt: text, src: val });
+        chrome.tabs.sendMessage(tab.id, { tgt: text, src: val }); //发送翻译结果给指定的tab页面进行处理
     }
 });
 
-
-window.onload = async () => {
-    init();
-}
-
-async function init() {
-    getCookie();
-    setInterval(() => getCookie(), 1000 * 30 * 30); //30分钟刷新一次cookie;
-}
-
-async function getCookie() {
-    let cookie = await getCookies(url);
-    let jointCookie = "";
-    for (let i in cookie) {
-        jointCookie = jointCookie + cookie[i].name;
-        jointCookie = jointCookie + "=";
-        jointCookie = jointCookie + cookie[i].value;
-        if (i != cookie.length - 1) jointCookie = jointCookie + ";";
-    }
-    yd_cookie = jointCookie; //赋值到全局变量中
-}
-
-
 function ajaxRequest(val) {
     return new Promise((resolve, reject) => {
+        //用java代码写的翻译接口
         $.ajax({
             url: "http://jiangbinyun.cn:8080/api/util/translate",
             type: "post",
-            data: { val, cookie: yd_cookie },
+            data: { val },
             success: (d) => {
                 resolve(d);
             },
             error: (d) => {
-                console.log(d);
                 resolve(d);
             }
-        })
-    })
-}
-
-function getCookies(url) {
-    return new Promise((resolve, reject) => {
-        chrome.cookies.getAll({
-            url: url,
-        }, (cookies) => {
-            resolve(cookies);
         })
     })
 }
