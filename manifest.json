@@ -13,8 +13,6 @@
         "128": "img/icon.png"
     },
     "permissions": [
-        "cookies",
-        "tabs",
         "contextMenus"
     ],
     "background": {
