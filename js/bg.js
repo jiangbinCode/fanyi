@@ -13,8 +13,8 @@ function ajaxRequest(val) {
     return new Promise((resolve, reject) => {
         //用java代码写的翻译接口
         $.ajax({
-            // url: "http://jiangbinyun.cn:8080/api/util/translate",
-            url: "http://127.0.0.1:8080/api/util/translate",
+            url: "http://jiangbinyun.cn:8080/api/util/translate",
+            // url: "http://127.0.0.1:8080/api/util/translate",
             type: "post",
             data: { val },
             success: (d) => {
