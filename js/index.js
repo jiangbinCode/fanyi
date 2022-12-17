@@ -21,6 +21,20 @@ function enter(data) {
     tgt_div.append("<span><i>" + data.tgt + "</i></span>")
     fy_div.append(src_div);
     fy_div.append(tgt_div);
+    let describe = data.describe;
+    if (describe != null && describe != undefined && describe.length > 0) {
+        let ddt = "";
+        for (let d of describe) {
+            if (ddt != "") ddt = ddt + "\n" + d;
+            else ddt = d;
+        }
+        console.log(ddt);
+        let de_div = $("<div id ='de'></div>");
+        de_div.append("<span class='_sp'>描述: </span>")
+        de_div.append("<span>" + ddt + "</span>")
+        fy_div.append(de_div);
+    }
+
     fy_div.append("<div id='tips'><i>双击关闭该窗口，翻译来自有道云翻译</i></div>")
     $("body").append(fy_div);
 
@@ -29,6 +43,6 @@ function enter(data) {
         $("#fy").remove();
     })
 
-    timer = setTimeout(() => $("#fy").remove(), 10000); //10 秒后自动关闭该窗口
+    timer = setTimeout(() => $("#fy").remove(), 13000); //13 秒后自动关闭该窗口
 
 }

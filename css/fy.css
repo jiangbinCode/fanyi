@@ -2,12 +2,14 @@
   z-index: 11111111111 !important;
   position: fixed !important;
   background-color: #666 !important;
-  width: 350px !important;
+  width: 370px !important;
   bottom: 90px !important;
   left: 40% !important;
   opacity: 0.9;
 }
 
+
+#de,
 #sd,
 #td {
   margin: 15px 10px !important;
@@ -23,7 +25,7 @@
   margin-right: 10px !important;
 }
 
-._sp{
-    color: #fff !important;
-    font-size: 18px !important;
+._sp {
+  color: #fff !important;
+  font-size: 18px !important;
 }
